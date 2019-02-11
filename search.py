@@ -194,7 +194,7 @@ def search_people(person_name, location=None):
     return process_results(results, location, "people")
 
 
-def print_results(results, location):
+def print_results(kind, results, location):
     """
     Results is a list with results in order of the
     distance to the requested location.
@@ -216,7 +216,11 @@ def print_results(results, location):
             if "" != item['distance']:
                 print('{}km - '.format(item['distance']), end='')
 
-            print('{}, {}, {}, {}, {}'.format(item['name'], item['address_1'], item['address_2'], item['postcode'], item['telephone']))
+            if 'business' == kind:
+                print('{}, {}, {}, {}, {}'.format(item['name'], item['address_1'], item['address_2'], item['postcode'], item['telephone']))
+            elif 'person' == kind:
+                print('{}, {}, {}, {}, {}, {}'.format(item['first_name'], item['last_name'], item['address_1'], item['address_2'], item['postcode'], item['telephone']))
+
     else:
         print('-----\nNothing was found.')
 

@@ -35,12 +35,12 @@ def business_search():
 			print('\n----------------')
 			biz_type, location = get_business_type(types)
 			results = search_business_type(biz_type, location)
-			print_results(results, location)
+			print_results('business', results, location)
 
 		elif 'd' == business_choice.lower():
 			biz_name, location = get_business_name()
 			results = search_business_name(biz_name, location)
-			print_results(results, location)
+			print_results('business', results, location)
 
 		else:
 			print('Please choose (c) or (d)')
@@ -75,7 +75,7 @@ def person_search():
 
 	person_name, location = get_person_name()
 	results = search_people(person_name, location)
-	print_results(results, location)
+	print_results('person', results, location)
 	search_again()
 
 
